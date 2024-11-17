@@ -69,6 +69,114 @@
         </div>
     </nav>
 </section>
+<script>
+        // Función para cargar el estado del navbar
+        function updateNavbar() {
+            const user = JSON.parse(sessionStorage.getItem("user"));
+            const misPostulaciones = document.getElementById("misPostulaciones");
+            const gestionOfertas = document.getElementById("gestionOfertas");
+            const loginButton = document.getElementById("loginButton");
+            const logoutButton = document.getElementById("logoutButton");
+            const userInfo = document.getElementById("userInfo");
+            const userName = document.getElementById("userName");
+    
+            if (user) {
+                // Mostrar opciones para usuarios logueados
+                loginButton.style.display = "none";
+                logoutButton.style.display = "block";
+                userInfo.style.display = "block";
+                userName.textContent = user.username;
+    
+                // Mostrar "Mis Postulaciones" para cualquier usuario logueado
+                misPostulaciones.style.display = "block";
+    
+                // Mostrar "Gestión de Ofertas" solo para el admin
+                if (user.username === "admin") {
+                    gestionOfertas.style.display = "block";
+                    misPostulaciones.style.display = "none";
+                } else {
+                    gestionOfertas.style.display = "none";
+                }
+            } else {
+                // Mostrar opciones para usuarios no logueados
+                loginButton.style.display = "block";
+                logoutButton.style.display = "none";
+                userInfo.style.display = "none";
+                misPostulaciones.style.display = "none";
+                gestionOfertas.style.display = "none";
+            }
+        }
+    
+        // Función para manejar login (redirigir a la página de login)
+        function handleLogin() {
+            window.location.href = "login.html";
+        }
+    
+        // Función para manejar logout (eliminar usuario y actualizar navbar)
+        function handleLogout() {
+            sessionStorage.removeItem("user");
+            alert("¡Cierre de sesión exitoso!");
+            updateNavbar();
+            window.location.href = "index.html";
+        }
+    
+        // Llamar a la función al cargar la página
+        document.addEventListener("DOMContentLoaded", updateNavbar);
+    </script>
+<script>
+        // Función para cargar el estado del navbar
+        function updateNavbar() {
+            const user = JSON.parse(sessionStorage.getItem("user"));
+            const misPostulaciones = document.getElementById("misPostulaciones");
+            const gestionOfertas = document.getElementById("gestionOfertas");
+            const loginButton = document.getElementById("loginButton");
+            const logoutButton = document.getElementById("logoutButton");
+            const userInfo = document.getElementById("userInfo");
+            const userName = document.getElementById("userName");
+    
+            if (user) {
+                // Mostrar opciones para usuarios logueados
+                loginButton.style.display = "none";
+                logoutButton.style.display = "block";
+                userInfo.style.display = "block";
+                userName.textContent = user.username;
+    
+                // Mostrar "Mis Postulaciones" para cualquier usuario logueado
+                misPostulaciones.style.display = "block";
+    
+                // Mostrar "Gestión de Ofertas" solo para el admin
+                if (user.username === "admin") {
+                    gestionOfertas.style.display = "block";
+                    misPostulaciones.style.display = "none";
+                } else {
+                    gestionOfertas.style.display = "none";
+                }
+            } else {
+                // Mostrar opciones para usuarios no logueados
+                loginButton.style.display = "block";
+                logoutButton.style.display = "none";
+                userInfo.style.display = "none";
+                misPostulaciones.style.display = "none";
+                gestionOfertas.style.display = "none";
+            }
+        }
+    
+        // Función para manejar login (redirigir a la página de login)
+        function handleLogin() {
+            window.location.href = "login.html";
+        }
+    
+        // Función para manejar logout (eliminar usuario y actualizar navbar)
+        function handleLogout() {
+            sessionStorage.removeItem("user");
+            alert("¡Cierre de sesión exitoso!");
+            updateNavbar();
+            window.location.href = "index.html";
+        }
+    
+        // Llamar a la función al cargar la página
+        document.addEventListener("DOMContentLoaded", updateNavbar);
+    </script>
 
 <section data-bs-version="5.1" class="form7 cid-uuknC2JKd3" id="form7-e">
     
